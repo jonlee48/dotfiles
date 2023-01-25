@@ -12,6 +12,10 @@
             "keys": "ctrl+c"
         },
         {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        {
             "command": "find",
             "keys": "ctrl+shift+f"
         },
@@ -27,42 +31,31 @@
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
-    "defaultProfile": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+    "defaultProfile": "{51855cb2-8cce-5362-8f54-464b92b32386}",
     "profiles": 
     {
         "defaults": {},
         "list": 
         [
             {
-                "backgroundImage": null,
+                "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
+                "hidden": false,
                 "bellStyle": "none",
                 "colorScheme": "Dark",
-                "experimental.retroTerminalEffect": false,
-                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-                "hidden": false,
-                "name": "Ubuntu-20.04",
                 "opacity": 90,
-                "source": "Windows.Terminal.Wsl",
                 "startingDirectory": "D:/sync/",
-                "useAcrylic": true
-            },
-            {
-                "backgroundImage": null,
-                "bellStyle": "none",
-                "colorScheme": "Dark",
-                "commandline": "cmd.exe /K C:\\Users\\jonat\\anaconda3\\Scripts\\activate.bat",
-                "experimental.retroTerminalEffect": false,
-                "guid": "{34ecbff4-3561-447a-b883-3e84da339b50}",
-                "hidden": false,
-                "icon": "ms-appx:///ProfileIcons/{0caa0dad-35be-5f56-a8ff-afceeeaa6101}.png",
-                "name": "Anaconda Prompt",
-                "opacity": 90,
-                "startingDirectory": "D:\\sync",
-                "useAcrylic": true
+                "useAcrylic": true,
+                "name": "Ubuntu",
+                "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
             },
             {
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
+                "bellStyle": "none",
+                "colorScheme": "Dark",
+                "opacity": 90,
+                "startingDirectory": "D:\\sync",
+                "useAcrylic": true,
                 "name": "Command Prompt"
             },
             {
@@ -77,24 +70,10 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{e2888924-c37b-5eed-b52d-408518a9d190}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2019",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{3a7b5480-ea46-5548-bd87-cca4499e8f13}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2019",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "colorScheme": "Dark",
-                "commandline": "C:\\Program Files\\Git\\bin\\bash.exe",
-                "guid": "{0f97147c-5bd5-4235-a325-06499a5162c7}",
-                "hidden": false,
-                "name": "Gitbash",
-                "startingDirectory": "D:\\sync"
+                "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+                "hidden": true,
+                "name": "Ubuntu",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
@@ -331,27 +310,50 @@
             "yellow": "#C4A000"
         },
         {
-            "background": "#2C001E",
-            "black": "#4E9A06",
-            "blue": "#3465A4",
-            "brightBlack": "#555753",
-            "brightBlue": "#729FCF",
-            "brightCyan": "#34E2E2",
-            "brightGreen": "#8AE234",
-            "brightPurple": "#AD7FA8",
-            "brightRed": "#EF2929",
-            "brightWhite": "#EEEEEE",
-            "brightYellow": "#FCE94F",
+            "background": "#300A24",
+            "black": "#171421",
+            "blue": "#0037DA",
+            "brightBlack": "#767676",
+            "brightBlue": "#08458F",
+            "brightCyan": "#2C9FB3",
+            "brightGreen": "#26A269",
+            "brightPurple": "#A347BA",
+            "brightRed": "#C01C28",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#A2734C",
             "cursorColor": "#FFFFFF",
-            "cyan": "#06989A",
-            "foreground": "#EEEEEE",
-            "green": "#2C001E",
-            "name": "UbuntuLegit",
-            "purple": "#75507B",
-            "red": "#CC0000",
+            "cyan": "#3A96DD",
+            "foreground": "#FFFFFF",
+            "green": "#26A269",
+            "name": "Ubuntu-20.04-ColorScheme",
+            "purple": "#881798",
+            "red": "#C21A23",
             "selectionBackground": "#FFFFFF",
-            "white": "#D3D7CF",
-            "yellow": "#C4A000"
+            "white": "#CCCCCC",
+            "yellow": "#A2734C"
+        },
+        {
+            "background": "#300A24",
+            "black": "#171421",
+            "blue": "#0037DA",
+            "brightBlack": "#767676",
+            "brightBlue": "#08458F",
+            "brightCyan": "#2C9FB3",
+            "brightGreen": "#26A269",
+            "brightPurple": "#A347BA",
+            "brightRed": "#C01C28",
+            "brightWhite": "#F2F2F2",
+            "brightYellow": "#A2734C",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#3A96DD",
+            "foreground": "#FFFFFF",
+            "green": "#26A269",
+            "name": "Ubuntu-ColorScheme",
+            "purple": "#881798",
+            "red": "#C21A23",
+            "selectionBackground": "#FFFFFF",
+            "white": "#CCCCCC",
+            "yellow": "#A2734C"
         },
         {
             "background": "#000000",
