@@ -6,4 +6,6 @@ Table of files
 |---|---|---|---|
 | settings.json  | Windows Terminal  | Terminal config  | C:\Users\{username}\AppData\Local\Microsoft\Windows Terminal\settings.json |
 | .vimrc | Vim | keybindings and config | ~/.vimrc | 
+| .bashrc | Bash | bash settings | ~/.bashrc
+| .bash_aliases | Bash | bash keybindings | ~/.bash_aliases |
 
