@@ -10,14 +10,14 @@ esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+# HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
-shopt -s histappend
+# shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# HISTSIZE=1000
+# HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -88,11 +88,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -128,11 +123,55 @@ export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 
 # Setup X11 Forwarding
-#export DISPLAY=$(ip route list default | awk '{print $3}'):0
 export LIBGL_ALWAYS_INDIRECT=1
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
-export XDG_RUNTIME_DIR=/tmp/runtime-jumpingjon
-export RUNLEVEL=3
 
 # Jupyter Notebook
 export PATH=$PATH:~/.local/bin
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jonlee48/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jonlee48/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jonlee48/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/jonlee48/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# Better bash history:
+# https://abarry.org/bash-history-finally-done-right/
+# Make sure you remove the existing history lines
+# Usually:
+###
+#    HISTCONTROL=ignoreboth
+#    shopt -s histappend
+#    HISTSIZE=1000
+#    HISTFILESIZE=2000
+###
+
+HISTSIZE=9000
+HISTFILESIZE=$HISTSIZE
+HISTCONTROL=ignorespace:ignoredups
+_bash_history_sync() {
+    builtin history -a
+    HISTFILESIZE=$HISTSIZE
+}
+history() {
+    _bash_history_sync
+    builtin history "$@"
+}
+PROMPT_COMMAND=_bash_history_sync
+
+if [[ "$-" =~ "i" ]] # Don't do this on non-interactive shells
+then
+    # Add MATLAB-style up-arrow, so if you type "ca[UP ARROW]" you'll get
+    # completions for only things that start with "ca" like "cat abc.txt"
+    bind '"\e[A":history-search-backward'
+    bind '"\e[B":history-search-forward'
+fi
