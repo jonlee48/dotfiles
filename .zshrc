@@ -100,30 +100,55 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
+####
+# Jonathan's changes:
+####
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+
+export CUDA_HOME=/usr/local/cuda
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
+export PATH=$PATH:$CUDA_HOME/bin
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+
+# Setup X11 Forwarding
+export LIBGL_ALWAYS_INDIRECT=1
+export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+
+# Jupyter Notebook
+export PATH=$PATH:~/.local/bin
+
+
+## reminder to sync clock
+date
+echo -e "reminder to sync clock [sync]\nsudo hwclock -s"
+
+## hack to fix directory highlighting
+
+LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
+source /opt/ros/humble/setup.zsh
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jonathan/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/jonlee48/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/jonathan/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jonathan/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/jonlee48/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/jonlee48/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/jonathan/miniconda3/bin:$PATH"
+        export PATH="/home/jonlee48/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-# Source ROS workspaces
-source /opt/ros/noetic/setup.zsh
-#source /home/jonathan/workspaces/aerial_collision_avoidance_ws/wet/devel/setup.zsh
-#source /home/jonathan/workspaces/adaptive_teleop_ws/wet/devel/setup.zsh
-
-# Source flightmare_ws
-#source ~/workspaces/flightmare_ws/devel/setup.zsh
-export FLIGHTMARE_PATH=~/workspaces/flightmare_ws/src/flightmare
-
-# Get color in terminal for vim
-#export TERM="screen-256color"
+# robot learning course - mujoco 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/jonlee48/.mujoco/mujoco210/bin

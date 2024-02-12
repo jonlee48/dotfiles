@@ -175,3 +175,13 @@ then
     bind '"\e[A":history-search-backward'
     bind '"\e[B":history-search-forward'
 fi
+
+## reminder to sync clock
+date
+echo -e "reminder to sync clock [sync]\nsudo hwclock -s"
+
+## build latex
+alias tex2pdf='latexmk -pdf -pvc $1'
+
+# ros
+source /opt/ros/humble/setup.bash
