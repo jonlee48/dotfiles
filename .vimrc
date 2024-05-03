@@ -3,6 +3,10 @@ set fileformat=unix			"fixes issue with CRLF and LF inconsistencies
 set hidden                  "prompt vim to remind me to save hidden files
 
 """ Colors: """
+                            "fix to get colors in tmux sessions
+                            "https://stackoverflow.com/questions/47969858/vim-colors-not-showing-in-tmux
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 syntax on					"enable syntax highlights
 colorscheme desert			"desert, evening, slate, koehler, industry, murphy, pablo, torte
 set termguicolors			"enable 24 bit color in terminal vim
